@@ -257,7 +257,7 @@ var MakePerson = function(name, birthday, ssn) {
   return info;
 }
 
-// MakePerson("John Doe", "1/1/11", "123-45-6789");
+MakePerson("John Doe", "1/1/11", "123-45-6789");
 
 
 
@@ -278,7 +278,7 @@ var MakeCard = function(name, cardNumber, securityCode, expirationDate) {
   return creditCard;
 }
 
-// MakeCard("Billy Bob", "123478129039487", "3829", "12/12/12");
+MakeCard("Billy Bob", "123478129039487", "3829", "12/12/12");
   
 
 
@@ -293,12 +293,12 @@ var MakeCard = function(name, cardNumber, securityCode, expirationDate) {
 
   //Code Here
 var bindCard = function(personObj, creditCardObj) {
-  var allInfo = {}
+  var allInfo = {};
   for (key in personObj) {
-    allInfo.key;
+    allInfo[key] = personObj[key];
   }
   for (key in creditCardObj) {
-    allInfo.key;
+    allInfo[key] = creditCardObj[key];
   }
   // var newObj = {
   //   person: personObj,
@@ -308,5 +308,11 @@ var bindCard = function(personObj, creditCardObj) {
   return allInfo;
 }
 
-bindCard(MakePerson, MakeCard);
+bindCard(MakePerson("John Doe", "1/1/11", "123-45-6789"), MakeCard("Billy Bob", "123478129039487", "3829", "12/12/12"));
+
+/*
+Could have saved arguments above to a variable and entered the variable in as the argument for bindCard (e.g. var billy = MakeCard("Billy Bob", "123478129039487", "3829", "12/12/12") --> bindCard(MakeCard(billy));) 
+
+If you do this then that info for that particular person can be saved and accessed elsewhere with ease.
+*/
 
